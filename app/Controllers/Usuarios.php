@@ -6,14 +6,15 @@ class Usuarios extends Controller
     {
 
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        if (isset($formulario)) :
-            $dados = [
+        $pattern_email = '/^[a-zA-z0-9,+]+@[a-zA-z0-9,]+\.[a-zA-Z]{2,}$/';
+        $pattern_nome = '/^[a-zA-Z\s\-\'\.]+$/';
+        if(isset($formulario) && preg_match($pattern_email, $formulario['email']) && preg_match($pattern_nome, $formulario['username'])):
+            $dados=[
                 'nome' => trim($formulario['nome']),
                 'email' => trim($formulario['email']),
                 'senha' => trim($formulario['senha']),
                 'confirma_senha' => trim($formulario['confirma_senha']),
-            ];
-
+            ]
             if (in_array("", $formulario)) :
 
                 if (empty($formulario['nome'])) :
@@ -41,7 +42,6 @@ class Usuarios extends Controller
                 endif;
 
             endif;
-
             var_dump($formulario);
         else :
             $dados = [

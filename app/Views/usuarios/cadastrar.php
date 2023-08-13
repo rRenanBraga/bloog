@@ -50,22 +50,4 @@
     </div>
 </div>
 
-<script>
-    function validateForm() {
-        var nomeInput = document.getElementById("nome");
-        var emailInput = document.getElementById("email");
-
-        if (nomeInput.value.trim() === "") {
-            alert("O campo Nome é obrigatório.");
-            nomeInput.focus();
-            return false;
-        }
-
-        if (emailInput.value.trim() === "") {
-            alert("O campo E-mail é obrigatório.");
-            emailInput.focus();
-            return false;
-        }
-        return true; 
-    }
 </script>
