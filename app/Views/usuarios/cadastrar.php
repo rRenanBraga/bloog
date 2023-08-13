@@ -66,9 +66,6 @@
             emailInput.focus();
             return false;
         }
-
-        // Você pode adicionar mais validações para o email, como um formato válido, se necessário.
-
-        return true; // O formulário será enviado se todas as validações passarem.
+        return true; 
     }
 </script>
